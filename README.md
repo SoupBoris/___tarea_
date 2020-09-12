@@ -1,19 +1,19 @@
-# Unidad 1 - Semana 2 - Memoria dinamica
+# Unidad 1 - Semana 2 - Memoria dinámica
 Tarea #2 del curso de programación orientado a objetos II, incluye el proyecto cmake: **poo2_unit1_week_2_2020-2_exercise**
 
 ## Contiene
 - **main.cpp**, programa principal.  
 - **my_vector.h**, para desarrollar el template my_vector   
-- **test_1.cpp, test_2.cpp y test_3.cpp**, contienen las pruebas para verificar que la clase my_vector funciona correctamente  
+- **test_1.cpp, test_2.cpp y test_3.cpp**, contienen pruebas para verificar que la clase my_vector funciona correctamente minimamente.  
 
 ## Problema 
-Crea una clase que se denominará utec::vector, utilizando templates y deberá contar con los siguientes métodos:
-- constructores básicos (default, copia y operador asignación) y constructor con parámetro size del tipo size_t.
+Crea una clase que se denominará `utec::vector`, utilizando templates y deberá contar con los siguientes métodos:
+- constructores básicos (default, copia y operador asignación) y constructor con parámetro size del tipo `size_t`.
 - destructor
-- push_back
-- pop_back
-- insert, debido a que no se va esta version no va contar con iteradores, utilizar posición.
-- erase, similar a insert utilizar posición.
+- `push_back`
+- `pop_back`
+- `insert`, debido a que no se va esta version no va contar con iteradores, utilizar posición.
+- `erase`, similar a `insert` utilizar posición para remover un item del vector.
 - operador + que genere un nuevo vector que incluya los elementos del primero y el segundo vector.
 ## Rubrica  
 - Los siguientes items seran evaluados:  

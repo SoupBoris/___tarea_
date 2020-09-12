@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.10.2)
 project(poo2_unit1_week_2_2020_2)
 
 set(CMAKE_CXX_STANDARD 17)
