@@ -3,7 +3,6 @@
 //
 #include "catch.hpp"
 #include "my_vector.h"
-#include <iostream>
 using namespace std;
 
 TEST_CASE("insert") {
