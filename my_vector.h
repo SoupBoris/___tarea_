@@ -39,7 +39,9 @@ namespace utec {
     T* data_ = new T[reserved_];
     }
 
-  ~my_vector();
+  ~my_vector(){
+    delete [] data_;
+  }
 
   size_t size(){
     T* temp =  new T[reserved_ * 2];
