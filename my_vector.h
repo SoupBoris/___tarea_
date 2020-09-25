@@ -62,7 +62,7 @@ namespace utec {
 
   T pop_back(){
     T temp = this->data_[this->size_ - 1];
-    this->data_[this->size_ - 1] = NULL;
+    this->size_ = this->size_ -1;
     return temp;
   }
 
@@ -71,7 +71,7 @@ namespace utec {
   }
 
   void erase(size_t posicion){
-    this->data_[posicion - 1] = NULL; //implementar movida de datos??
+    this->data_[posicion - 1] = 0; //implementar movida de datos??
   }
 
   my_vector& operator=(initializer_list<T> values){
@@ -100,8 +100,8 @@ namespace utec {
     return data_[i];
     }
 
-  my_vector operator+(my_vector vec1){
-    my_vector combinado();
+  my_vector<T> operator+(my_vector<T> &vec1){
+    my_vector combinado(size_ + vec1.size_);
 
     for(int i = 0; i < size_; i++){
       combinado.push_back(data_[i]);
