@@ -1,11 +1,12 @@
-//#define CATCH_CONFIG_MAIN
+#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "my_vector.h"
+//#include "my_vector.h"
 
-using namespace std;
+//using namespace std;
 
-
+/*
 int main(){
 
 
 }
+*/

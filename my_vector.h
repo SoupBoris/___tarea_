@@ -44,6 +44,10 @@ namespace utec {
   }
 
   size_t size(){
+    return size_;
+  }
+
+  size_t resize(){
     T* temp =  new T[reserved_ * 2];
     reserved_ *= 2;
     for(int i = 0; i < size_; i++){
@@ -55,7 +59,7 @@ namespace utec {
 
   void push_back(T data){
     if (this-> size_ == this-> reserved_){
-      size();
+      resize();
     }
     
     data_[size_] = data;
@@ -76,7 +80,7 @@ namespace utec {
     this->data_[posicion - 1] = 0; //implementar movida de datos??
   }
 
-  my_vector& operator=(initializer_list<T> values){
+  my_vector<T>& operator=(initializer_list<T> values){
     if (data_){
       delete [] data_;
     }
