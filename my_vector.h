@@ -20,9 +20,9 @@ namespace utec {
   public:
 
   my_vector(){
-    T* data = nullptr;
     size_ = 0;
     reserved_ = 5;
+    data_ = new T[5];
   }
   my_vector (const my_vector &old_vect){
   data_ = new T[reserved_];
@@ -47,7 +47,7 @@ namespace utec {
     return size_;
   }
 
-  size_t resize(){
+  void resize(){
     T* temp =  new T[reserved_ * 2];
     reserved_ *= 2;
     for(int i = 0; i < size_; i++){
@@ -55,10 +55,11 @@ namespace utec {
     }
     delete [] data_;
     data_ = temp;
+    temp = nullptr;
   }
 
   void push_back(T data){
-    if (this-> size_ == this-> reserved_){
+    if ( (size_ + 1) == reserved_){
       resize();
     }
     
@@ -67,17 +68,40 @@ namespace utec {
   }
 
   T pop_back(){
-    T temp = this->data_[this->size_ - 1];
-    this->size_ = this->size_ -1;
+    T temp = data_[size_ - 1];
+    size_ = size_ -1;
     return temp;
   }
 
   void insert(T data, size_t posicion){
-    this->data_[posicion - 1] = data; //implementar movida de datos??
+    if (reserved_ <= size_){
+      resize();
+    }
+    
+    
+    if(size_ == 0){
+      push_back(data);
+    }
+    else if(size_== 1){
+      data_[1] = data_[0];
+      data_[0] = data;
+      size_++;
+    }
+    else{
+      for(int i = (size_ - 1); i > posicion; i--){
+        data_[i+1] = data_[i];
+    }
+      data_[posicion] = data;
+      size_++;
+    }
+    
   }
 
   void erase(size_t posicion){
-    this->data_[posicion - 1] = 0; //implementar movida de datos??
+    for(int i = posicion; i < (size_ - 1); i++){
+      data_[i] = data_[i+1];
+    }
+    size_--;
   }
 
   my_vector<T>& operator=(initializer_list<T> values){
