@@ -73,25 +73,33 @@ namespace utec {
     return temp;
   }
 
-  void insert(T data, size_t posicion){
-    if (reserved_ <= size_){
+  void insert(size_t posicion, T value){
+    if (reserved_ <= size_ + 1){
       resize();
     }
     
-    
+    cout << "data de este insert = " << value << endl;
     if(size_ == 0){
-      push_back(data);
+      push_back(value);   
     }
-    else if(size_== 1){
-      data_[1] = data_[0];
-      data_[0] = data;
+    else if(size_ -1 == 0){
+      if(posicion == 0){
+        data_[1] = data_[0];
+        data_[0] = value;
+      }
+      else{
+        data_[1] = value;
+      }
       size_++;
     }
     else{
-      for(int i = (size_ - 1); i > posicion; i--){
+      int i = size_ -1;
+      int j = posicion -1;
+      for(i; i > j; i--){
+        cout << "valor de i:" << i << endl;
         data_[i+1] = data_[i];
     }
-      data_[posicion] = data;
+      data_[posicion] = value;
       size_++;
     }
     
