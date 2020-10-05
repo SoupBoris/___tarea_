@@ -141,19 +141,12 @@ namespace utec {
     utec::my_vector<T> combinado(size_ + vec1.size_);
 
     for(int i = 0; i < this->size_; i++){
-      combinado.data_[i] = this->data_[i];
-      combinado.size_++;
+      combinado.push_back(this->data_[i]);
     }
 
-    for(int i = 5; i < (vec1.size_ + 5); i++){
-      combinado.data_[i] = vec1.data_[i-5];
-      combinado.size_++;
+    for(int i = 0; i < vec1.size_; i++){
+      combinado.push_back(vec1.size_[i]);
     }
-
-    for(int i = 0; i < combinado.size_; i++){
-      cout << combinado.data_[i] << ", ";
-    }
-    cout << endl;
 
     combinado.reserved_ = (size_ + vec1.size_);
     return combinado;
