@@ -134,7 +134,7 @@ namespace utec {
       return data_[0];
     }
     
-    return data_[i];
+    return *(data_ + i);
     }
 
   my_vector<T> operator+(my_vector<T> &vec1){
@@ -145,7 +145,7 @@ namespace utec {
     }
 
     for(int i = 0; i < vec1.size_; i++){
-      combinado.push_back(vec1.size_[i]);
+      combinado.push_back(vec1.data_[i]);
     }
 
     combinado.reserved_ = (size_ + vec1.size_);
