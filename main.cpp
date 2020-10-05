@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/*
+
 int main(){
 utec::my_vector<int> vec3a;
     utec::my_vector<int> vec3b;
@@ -15,4 +15,4 @@ utec::my_vector<int> vec3a;
     int total = 0;
     for (size_t i = 0; i < vec3c.size(); ++i)
         total += vec3c[i];
-    }*/
+    }

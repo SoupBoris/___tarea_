@@ -37,7 +37,7 @@ namespace utec {
   my_vector(size_t reserved){
     reserved_= reserved;
     size_ = 0;
-    T* data_ = new T[reserved_];
+    T* data_ = new T[reserved];
     }
 
   ~my_vector(){
@@ -129,7 +129,7 @@ namespace utec {
   }
 
   T &operator[](size_t i) {
-    if( i > reserved_ ) {
+    if( i > reserved_ - 1) {
       cout << "ERROR CATASTROFICO - STACK OVERFLOW" <<endl; 
       return data_[0];
     }
@@ -138,18 +138,24 @@ namespace utec {
     }
 
   my_vector<T> operator+(my_vector<T> &vec1){
-    utec::my_vector<T> combinado = my_vector<T>(size_ + vec1.size_);
+    utec::my_vector<T> combinado(size_ + vec1.size_);
 
-    for(int i = 0; i < size_; i++){
-      combinado.push_back(data_[i]);
-      combinado.reserved_ = size_ + vec1.size_;
+    for(int i = 0; i < this->size_; i++){
+      combinado.data_[i] = this->data_[i];
+      combinado.size_++;
     }
 
-    for(int i = 0; i < vec1.size_; i++){
-      combinado.push_back(vec1.data_[i]);
-      combinado.reserved_ = size_ + vec1.size_;
+    for(int i = 5; i < (vec1.size_ + 5); i++){
+      combinado.data_[i] = vec1.data_[i-5];
+      combinado.size_++;
     }
 
+    for(int i = 0; i < combinado.size_; i++){
+      cout << combinado.data_[i] << ", ";
+    }
+    cout << endl;
+
+    combinado.reserved_ = (size_ + vec1.size_);
     return combinado;
     }
 
